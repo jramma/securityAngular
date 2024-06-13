@@ -1,0 +1,37 @@
+<section class="flex flex-col gap-6 border border-red-300 p-6">
+  <input
+    class="w-80 h-12 rounded-lg border border-gray-300 p-2 text-black"
+    [(ngModel)]="searchTerm"
+    (input)="onSearch()"
+    placeholder="Buscar artículos"
+  />
+  <h2 class="text-3xl">Article_list</h2>
+  <div class="flex flex-wrap gap-6">
+    <div *ngFor="let article of articles">
+      <app-article-item
+        [article]="article"
+        (quantityChange)="onQuantityChange($event)"
+      ></app-article-item>
+
+      <div *ngIf="article.isOnSale" class="flex flex-row justify-between p-4">
+        <button
+          (click)="onQuantityChange({ article: article, changeInQuantity: 1 })"
+          class="w-1/4 relative font-bold border border-blue-300 text-blue-300"
+        >
+          +1
+        </button>
+        <button
+          class="w-1/4 relative font-bold border"
+          [class.text-red-300]="article.quantityInCart > 0"
+          [class.text-gray-600]="article.quantityInCart === 0"
+          [class.border-red-300]="article.quantityInCart > 0"
+          [class.border-gray-600]="article.quantityInCart === 0"
+          (click)="onQuantityChange({ article: article, changeInQuantity: -1 })"
+          [disabled]="article.quantityInCart === 0"
+        >
+          -1
+        </button>
+      </div>
+    </div>
+  </div>
+</section>

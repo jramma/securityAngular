@@ -1,0 +1,92 @@
+<h2 class="w-full flex justify-center text-3xl p-12">
+  Reactivo
+</h2>
+<form
+  [formGroup]="article"
+  (ngSubmit)="onSubmit()"
+  class="max-w-lg mx-auto p-12 bg-gray-50 rounded-3xl border-4 border-solid shadow-md flex flex-col gap-6 group transition-all ease-in-out duration-500 hover:border-blue-600 "
+>
+  <div>
+    <label class="group-hover:text-blue-900  block text-gray-700 font-bold mb-2">
+      Nombre de articulo:
+      <input
+        placeholder="Nombre del artículo"
+        type="text"
+        required
+        formControlName="name"
+        class="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+      />
+    </label>
+    <div
+      *ngIf="name?.invalid && (name?.dirty || name?.touched || submitted)"
+      class="text-red-500 text-sm"
+    >
+      <div *ngIf="name?.errors?.['required']">El nombre es requerido.</div>
+      <div *ngIf="name?.errors?.['minlength']">
+        El nombre debe tener al menos 3 caracteres.
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <label class="block text-gray-700 font-bold mb-2 group-hover:text-blue-900  ">
+      Precio del artículo:
+      <input
+        placeholder="Precio del artículo"
+        type="number"
+        formControlName="price"
+        class="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+      />
+    </label>
+    <div
+      *ngIf="price?.invalid && (price?.dirty || price?.touched || submitted)"
+      class="text-red-500 text-sm"
+    >
+      <div *ngIf="price?.errors?.['required']">El precio es requerido.</div>
+      <div *ngIf="price?.errors?.['min']">El precio no puede ser negativo.</div>
+    </div>
+  </div>
+
+  <div>
+    <label class="group-hover:text-blue-900  block text-gray-700 font-bold mb-2">
+      URL de la imagen:
+      <input
+        placeholder="URL de la imagen"
+        type="text"
+        formControlName="imageUrl"
+        class="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+      />
+    </label>
+    <div
+      *ngIf="
+        imageUrl?.invalid && (imageUrl?.dirty || imageUrl?.touched || submitted)
+      "
+      class="text-red-500 text-sm"
+    >
+      <div *ngIf="imageUrl?.errors?.['required']">
+        La URL de la imagen es requerida.
+      </div>
+      <div *ngIf="imageUrl?.errors?.['pattern']">
+        La URL debe ser válida y terminar en .png o .jpg.
+      </div>
+    </div>
+  </div>
+
+  <div class="mb-4 flex items-center">
+    <label class="text-gray-700 font-bold mr-2 group-hover:text-blue-900 ">
+      ¿Está en venta?
+      <input type="checkbox" formControlName="isOnSale" class="ml-2 cursor-pointer" />
+    </label>
+  </div>
+  <div *ngIf="formError" class="text-red-500">
+    {{ formError }}
+  </div>
+  <div class="text-center">
+    <button
+      type="submit"
+      class="bg-orange-500 hover:bg-blue-300 text-white font-bold py-2 px-4 rounded-full w-full"
+    >
+      Crear
+    </button>
+  </div>
+</form>
