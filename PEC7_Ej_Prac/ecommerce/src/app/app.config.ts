@@ -9,7 +9,7 @@ import {
   withFetch,
   HTTP_INTERCEPTORS,
 } from '@angular/common/http';
-import { AuthStoreService } from './auth-store.service';
+import { AuthStoreService } from './services/auth-store.service';
 import { AuthInterceptor } from './auth.interceptor';
 
 export const appConfig: ApplicationConfig = {

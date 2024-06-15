@@ -276,3 +276,8 @@
    ```
 
    En cuanto a dónde estás usando middlewares en tu aplicación, necesitaría más detalles sobre tu aplicación para poder responder. Sin embargo, los lugares comunes para usar middleware en una aplicación Angular incluyen la autenticación, el manejo de errores, la transformación de solicitudes/respuestas HTTP, y el control de acceso a las rutas.
+
+
+
+
+

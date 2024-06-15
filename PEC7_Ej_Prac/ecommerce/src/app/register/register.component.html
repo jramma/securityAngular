@@ -1,17 +1,26 @@
-<form>
+<form class="flex flex-col items-center gap-2">
   <h2>Formulario de Registro</h2>
 
   <label for="fname">Nombre:</label><br />
-  <input type="text" id="fname" name="fname" /><br />
+  <input class="text-black" type="text" id="fname" name="fname" /><br />
 
   <label for="lname">Apellido:</label><br />
-  <input type="text" id="lname" name="lname" /><br />
+  <input class="text-black" type="text" id="lname" name="lname" /><br />
 
   <label for="email">Email:</label><br />
-  <input type="email" id="email" name="email" /><br />
+  <input class="text-black" type="email" id="email" name="email" /><br />
 
   <label for="password">Contraseña:</label><br />
-  <input type="password" id="password" name="password" /><br />
+  <input
+    class="text-black"
+    type="password"
+    id="password"
+    name="password"
+  /><br />
 
-  <input type="submit" value="Registrar" />
+  <button
+    class="bg-green-400 p-4 rounded-lg text-xl hover:scale-110 transition-all ease-in-out duration-300"
+    type="submit"
+    value="Registrar"
+  >Registrar</button>
 </form>

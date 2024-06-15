@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpInterceptor, HttpRequest, HttpHandler } from '@angular/common/http';
-import { AuthStoreService } from './auth-store.service';
+import { AuthStoreService } from './services/auth-store.service';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {

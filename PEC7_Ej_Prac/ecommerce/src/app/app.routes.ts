@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
-import { ArticleListComponent } from './article-list/article-list.component';
-import { ArticleNewReactiveComponent } from './article-new-reactive/article-new-reactive.component';
-import { ArticleDetailComponent } from './article-detail/article-detail.component';
+import { ArticleListComponent } from './articles/article-list/article-list.component';
+import { ArticleNewReactiveComponent } from './articles/article-new-reactive/article-new-reactive.component';
+import { ArticleDetailComponent } from './articles/article-detail/article-detail.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 export const routes: Routes = [

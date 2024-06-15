@@ -1,15 +1,9 @@
 <div *ngIf="article">
-  <h2>{{ article.title }}</h2>
-
-  <div><label>Id: </label>{{ article.id }}</div>
-  <div>
-    <label>Title: </label>
-    <input [(ngModel)]="article.title" placeholder="title" />
-  </div>
-  <div>
-    <label>Content: </label>
-    <textarea [(ngModel)]="article.content" placeholder="content"></textarea>
-  </div>
+  <h2>{{ article.name }}</h2>
+  <img [src]="article.imageUrl" alt="{{ article.name }}">
+  <p>{{ article.price }}</p>
+  <p>{{ article.isOnSale ? 'On Sale' : 'Not On Sale' }}</p>
+  <p>Quantity in Cart: {{ article.quantityInCart }}</p>
 
   <button (click)="goBack()">Go Back</button>
 </div>
