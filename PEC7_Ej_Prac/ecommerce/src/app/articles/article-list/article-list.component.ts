@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ArticleItemComponent } from '../article-item/article-item.component';
 import { CommonModule } from '@angular/common';
-import { Article } from '../articles.module';
-import { ArticleService } from '../article-service.service';
+import { Article } from '../../articles.module';
+import { ArticleService } from '../../services/article-service.service';
 import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-article-list',

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AbstractControl } from '@angular/forms';
-import { Article } from './articles.module';
+import { Article } from '../articles.module';
 import { map } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 

@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../auth.service';
-import { FormBuilder, Validators } from '@angular/forms';
+import { AuthService } from '../services/auth.service';
+import { FormBuilder, Validators} from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [Validators, AuthService, FormBuilder],
+  imports: [ReactiveFormsModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
 })

@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import {
   ArticleService,
   NameArticleValidator,
-} from '../article-service.service';
+} from '../../services/article-service.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 import {

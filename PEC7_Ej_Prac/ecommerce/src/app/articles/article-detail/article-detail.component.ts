@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ArticleService } from '../article-service.service';
-import { Article } from '../articles.module';
+import { ArticleService } from '../../services/article-service.service';
+import { Article } from '../../articles.module';
 @Component({
   selector: 'app-article-detail',
   standalone: true,
@@ -19,7 +19,7 @@ export class ArticleDetailComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.id = this.route.snapshot.paramMap.get('id') ?? 0;
+    this.id = this.route.snapshot.paramMap.get('id') ?? '';
     this.getArticle();
   }
 
