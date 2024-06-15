@@ -1,14 +1,18 @@
-<form class="flex flex-col items-center gap-2">
+<form
+  [formGroup]="registerForm"
+  (ngSubmit)="onSubmit()"
+  class="flex flex-col items-center gap-2"
+>
   <h2>Formulario de Registro</h2>
 
-  <label for="fname">Nombre:</label><br />
-  <input class="text-black" type="text" id="fname" name="fname" /><br />
-
-  <label for="lname">Apellido:</label><br />
-  <input class="text-black" type="text" id="lname" name="lname" /><br />
-
-  <label for="email">Email:</label><br />
-  <input class="text-black" type="email" id="email" name="email" /><br />
+  <label for="username">Nombre:</label><br />
+  <input
+    class="text-black"
+    type="text"
+    id="username"
+    name="username"
+    formControlName="username"
+  /><br />
 
   <label for="password">Contraseña:</label><br />
   <input
@@ -16,11 +20,14 @@
     type="password"
     id="password"
     name="password"
+    formControlName="password"
   /><br />
 
   <button
     class="bg-green-400 p-4 rounded-lg text-xl hover:scale-110 transition-all ease-in-out duration-300"
     type="submit"
-    value="Registrar"
-  >Registrar</button>
+    [disabled]="!registerForm.valid"
+  >
+    Registrar
+  </button>
 </form>
