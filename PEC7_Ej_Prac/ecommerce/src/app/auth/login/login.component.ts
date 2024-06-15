@@ -30,10 +30,14 @@ export class LoginComponent implements OnInit {
           if (response && response.token) {
             this.authService.setToken(response.token);
             console.log('Inicio de sesión exitoso!');
+            window.confirm('Inicio de sesión exitoso!');
+
           } else {
             console.log(
               'La respuesta del servidor no contiene un token de autenticación.'
             );
+            window.confirm('Inicio de sesión NO exitoso!');
+
           }
         },
         error: (error) => {

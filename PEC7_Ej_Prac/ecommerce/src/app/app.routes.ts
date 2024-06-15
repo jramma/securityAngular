@@ -11,8 +11,18 @@ export const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'articles', component: ArticleListComponent },
-  { path: 'react', component: ArticleNewReactiveComponent, canActivate: [authGuardGuard] },
+  {
+    path: 'react',
+    component: ArticleNewReactiveComponent,
+    canActivate: [authGuardGuard],
+  },
   { path: 'article-detail/:id', component: ArticleDetailComponent },
+  {
+    path: 'auth',
+    loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
+  },
+  {
+    path: 'articles',
+    loadChildren: () => import('./article/article.module').then(m => m.ArticleModule)
+  }
 ];
-
-//https://a.jpg
