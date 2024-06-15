@@ -1,35 +1,43 @@
-<nav class="w-full flex items-center justify-between p-8 text-xl">
-  <div>
+<nav>
+  <div class="flex items-center gap-8">
     <a
-      class="group text-blue-200 transition duration-300 font-extrabold"
-      routerLink="/articles"
+      class="group text-blue-200 transition duration-300"
+      routerLink="/login"
       routerLinkActive="active"
     >
-      Home
+      Login
       <span
         class="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-blue-200"
       ></span>
     </a>
-  </div>
-  <div class="flex items-center gap-8">
     <a
       class="group text-pink-200 transition duration-300"
-      routerLink="/articles"
+      routerLink="/register"
       routerLinkActive="active"
     >
-      Articles
+      Register
       <span
         class="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-pink-200"
       ></span>
     </a>
     <a
       class="group text-green-200 transition duration-300"
+      routerLink="/articles"
+      routerLinkActive="active"
+    >
+      Articles List
+      <span
+        class="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-green-200"
+      ></span>
+    </a>
+    <a
+      class="group text-yellow-200 transition duration-300"
       routerLink="/react"
       routerLinkActive="active"
     >
-      Nuevo artículo
+      Create Article
       <span
-        class="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-green-200"
+        class="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-yellow-200"
       ></span>
     </a>
   </div>

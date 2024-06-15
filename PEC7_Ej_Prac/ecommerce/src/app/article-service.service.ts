@@ -18,11 +18,13 @@ export class ArticleService {
     const url = query ? `${this.apiUrl}?q=${query}` : this.apiUrl;
     return this.http.get<Article[]>(url);
   }
-
+  getArticle(id: any): Observable<Article> {
+    const url = `${this.apiUrl}/${id}`;
+    return this.http.get<Article>(url);
+  }
   create(article: Article): Observable<Article> {
     return this.http.post<Article>(this.apiUrl, article);
   }
-
   changeQuantity(
     articleID: number,
     changeInQuantity: number
@@ -46,17 +48,6 @@ export class ArticleService {
         return newArticleID;
       })
     );
-  }
-
-  login(username: string, password: string): Observable<any> {
-    const url = `${this.authUrl}/login`;
-    return this.http.post(url, { username, password });
-  }
-
-  register(username: string): Observable<any> {
-    const url = `${this.authUrl}/register`;
-    const password = 'SECRET';
-    return this.http.post(url, { username, password });
   }
 }
 export function NameArticleValidator(

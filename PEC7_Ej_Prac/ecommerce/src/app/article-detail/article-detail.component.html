@@ -1,1 +1,15 @@
-<p>article-detail works!</p>
+<div *ngIf="article">
+  <h2>{{ article.title }}</h2>
+
+  <div><label>Id: </label>{{ article.id }}</div>
+  <div>
+    <label>Title: </label>
+    <input [(ngModel)]="article.title" placeholder="title" />
+  </div>
+  <div>
+    <label>Content: </label>
+    <textarea [(ngModel)]="article.content" placeholder="content"></textarea>
+  </div>
+
+  <button (click)="goBack()">Go Back</button>
+</div>
