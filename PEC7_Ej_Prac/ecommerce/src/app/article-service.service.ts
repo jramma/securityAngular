@@ -10,11 +10,11 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ArticleService {
   private apiUrl = 'http://localhost:3000/api/articles';
-
+  private authUrl = 'http://localhost:3000/api/auth';
   constructor(private http: HttpClient) {}
 
   getArticles(query?: string): Observable<Article[]> {
-    console.log(query)
+    console.log(query);
     const url = query ? `${this.apiUrl}?q=${query}` : this.apiUrl;
     return this.http.get<Article[]>(url);
   }
@@ -46,6 +46,17 @@ export class ArticleService {
         return newArticleID;
       })
     );
+  }
+
+  login(username: string, password: string): Observable<any> {
+    const url = `${this.authUrl}/login`;
+    return this.http.post(url, { username, password });
+  }
+
+  register(username: string): Observable<any> {
+    const url = `${this.authUrl}/register`;
+    const password = 'SECRET';
+    return this.http.post(url, { username, password });
   }
 }
 export function NameArticleValidator(
