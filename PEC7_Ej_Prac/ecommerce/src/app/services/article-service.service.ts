@@ -10,9 +10,10 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ArticleService {
   private apiUrl = 'http://localhost:3000/api/articles';
-  private authUrl = 'http://localhost:3000/api/auth';
   constructor(private http: HttpClient) {}
-
+  getAllArticles(): Observable<Article[]> {
+    return this.http.get<Article[]>(this.apiUrl);
+  }
   getArticles(query?: string): Observable<Article[]> {
     console.log(query);
     const url = query ? `${this.apiUrl}?q=${query}` : this.apiUrl;

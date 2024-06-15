@@ -1,24 +1,29 @@
 import { Injectable } from '@angular/core';
-
+import { AuthService } from './auth.service';
 @Injectable({
   providedIn: 'root',
 })
 export class AuthStoreService {
   private readonly TOKEN_KEY = 'auth_token';
 
+  constructor(private authService: AuthService) {}
+
   login(): void {
-    localStorage.setItem(this.TOKEN_KEY, 'fake-auth-token');
+    this.authService.setToken('fake-auth-token');
   }
 
   logout(): void {
-    localStorage.removeItem(this.TOKEN_KEY);
+    this.authService.setToken('noToken');
   }
 
   isAuthenticated(): boolean {
-    return localStorage.getItem(this.TOKEN_KEY) !== null;
+    return (
+      this.authService.getToken() !== null ||
+      this.authService.getToken() !== 'noToken'
+    );
   }
 
   getToken(): string | null {
-    return localStorage.getItem(this.TOKEN_KEY);
+    return this.authService.getToken();
   }
 }

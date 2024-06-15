@@ -1,4 +1,4 @@
-<section class="text-white flex flex-col gap-6 p-2 cursor-pointer max-w-72">
+<section class="text-white flex flex-col gap-6 p-2 cursor-pointer max-w-72" [routerLink]="['/article-detail', article.id]">
   <div class="flex justify-between">
     <div class="w-1/2">
       <h2>{{ article.name }}</h2>

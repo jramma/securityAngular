@@ -1,9 +1,13 @@
-<div *ngIf="article">
+<div *ngIf="article" class="container flex flex-col gap-2 items-center">
   <h2>{{ article.name }}</h2>
-  <img [src]="article.imageUrl" alt="{{ article.name }}">
-  <p>{{ article.price }}</p>
-  <p>{{ article.isOnSale ? 'On Sale' : 'Not On Sale' }}</p>
+  <img
+    [src]="article.imageUrl"
+    alt="{{ article.name }}"
+    class="object-cover w-36 h-36"
+  />
+  <p>{{ article.price }} €</p>
+  <p>{{ article.isOnSale ? "On Sale" : "Not On Sale" }}</p>
   <p>Quantity in Cart: {{ article.quantityInCart }}</p>
 
-  <button (click)="goBack()">Go Back</button>
+  <button class="bg-yellow-700" (click)="goBack()">Go Back</button>
 </div>

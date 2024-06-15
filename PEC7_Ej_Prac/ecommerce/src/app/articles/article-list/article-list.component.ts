@@ -16,26 +16,34 @@ export class ArticleListComponent implements OnInit {
   searchTerm: string = '';
 
   constructor(private articleService: ArticleService) {}
-  ngOnInit() {
+
+  ngOnInit(): void {
     this.loadArticles();
   }
+
   onSearch(): void {
     this.loadArticles();
   }
+
   loadArticles(): void {
-    this.articleService.getArticles(this.searchTerm).subscribe((articles) => {
-      this.articles = articles;
-    });
+    if (this.searchTerm.trim() === '') {
+      // Si el término de búsqueda está vacío, cargar todos los artículos
+      this.articleService.getAllArticles().subscribe((articles) => {
+        this.articles = articles;
+      });
+    } else {
+      // Si hay un término de búsqueda, cargar artículos según el término
+      this.articleService.getArticles(this.searchTerm).subscribe((articles) => {
+        this.articles = articles;
+      });
+    }
   }
 
   onAddQuantity(article: Article): void {
     this.articleService
       .changeQuantity(article.id, 1)
       .subscribe((newArticle) => {
-        const index = this.articles.findIndex((a) => a.id === newArticle.id);
-        if (index !== -1) {
-          this.articles[index] = newArticle;
-        }
+        this.updateArticleInList(newArticle);
       });
   }
 
@@ -43,10 +51,7 @@ export class ArticleListComponent implements OnInit {
     this.articleService
       .changeQuantity(article.id, -1)
       .subscribe((newArticle) => {
-        const index = this.articles.findIndex((a) => a.id === newArticle.id);
-        if (index !== -1) {
-          this.articles[index] = newArticle;
-        }
+        this.updateArticleInList(newArticle);
       });
   }
 
@@ -60,10 +65,14 @@ export class ArticleListComponent implements OnInit {
         quantityChange.changeInQuantity
       )
       .subscribe((newArticle) => {
-        const index = this.articles.findIndex((a) => a.id === newArticle.id);
-        if (index !== -1) {
-          this.articles[index] = newArticle;
-        }
+        this.updateArticleInList(newArticle);
       });
+  }
+
+  private updateArticleInList(newArticle: Article): void {
+    const index = this.articles.findIndex((a) => a.id === newArticle.id);
+    if (index !== -1) {
+      this.articles[index] = newArticle;
+    }
   }
 }

@@ -3,11 +3,11 @@ import { ActivatedRoute } from '@angular/router';
 import { ArticleService } from '../../services/article-service.service';
 import { Article } from '../../articles.module';
 import { Location } from '@angular/common';
-
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-article-detail',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './article-detail.component.html',
   styleUrl: './article-detail.component.css',
 })

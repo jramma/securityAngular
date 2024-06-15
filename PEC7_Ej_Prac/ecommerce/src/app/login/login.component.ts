@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
-import { FormBuilder, Validators} from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
       this.authService.login(username, password).subscribe({
         next: (response) => {
           if (response && response.token) {
-            localStorage.setItem('authToken', response.token);
+            this.authService.setToken(response.token);
             console.log('Inicio de sesión exitoso!');
           } else {
             console.log(

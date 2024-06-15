@@ -4,12 +4,14 @@ import { ArticleNewReactiveComponent } from './articles/article-new-reactive/art
 import { ArticleDetailComponent } from './articles/article-detail/article-detail.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { authGuardGuard } from './auth-guard.guard';
+
 export const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'articles', component: ArticleListComponent },
-  { path: 'react', component: ArticleNewReactiveComponent },
+  { path: 'react', component: ArticleNewReactiveComponent, canActivate: [authGuardGuard] },
   { path: 'article-detail/:id', component: ArticleDetailComponent },
 ];
 
