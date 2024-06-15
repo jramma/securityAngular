@@ -1,9 +1,9 @@
 import { Routes } from '@angular/router';
-import { ArticleListComponent } from './articles/article-list/article-list.component';
-import { ArticleNewReactiveComponent } from './articles/article-new-reactive/article-new-reactive.component';
-import { ArticleDetailComponent } from './articles/article-detail/article-detail.component';
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
+import { ArticleListComponent } from './article/article-list/article-list.component';
+import { ArticleNewReactiveComponent } from './article/article-new-reactive/article-new-reactive.component';
+import { ArticleDetailComponent } from './article/article-detail/article-detail.component';
+import { LoginComponent } from './auth/login/login.component';
+import { RegisterComponent } from './auth/register/register.component';
 import { authGuardGuard } from './auth-guard.guard';
 
 export const routes: Routes = [
